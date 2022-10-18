@@ -1,0 +1,36 @@
+<!-- WHAT DO WE NEED IN USER PROFILE -->
+<!-- USER STORY : I should be able to create and maintain a profile page. -->
+<!-- WHEN A USER SIGNS UP - THEY NATURALLY WILL HAVE A USER PROFILE PAGE - BY DEFAULT IT WILL PULL IN FIRST NAME, LAST NAME AND EMAIL FROM THE REGISTER -->
+
+<!-- MODELS NEEDED: USERPROFILE: userId (links to Users - for the first name, last name and email),  + USERS (userId, firstName, lastName, email, password)  -->
+
+<!-- WHAT ELSE: PAST ORDERS? -->
+<app-navbar></app-navbar>
+<!-- USER PROFILE NAV BAR -->
+<div class="general">
+    <div id="welcome" class="d-flex justify-content-center">
+        <h1 class="p-3">Welcome Back, </h1>
+    </div>
+    <div class="d-flex justify-content-center">
+       <span id="nav" class="d-flex justify-content-center bg-light w-75">
+        <button class="btn btn-light mx-2" (click)="btnClick()">
+            <span><i class="bi bi-file-earmark-person"></i></span>
+            Details
+        </button>
+        <button class="btn btn-light mx-2">
+            <span><i class="bi bi-box-seam"></i></span>
+            Orders
+        </button>
+    </span> 
+    </div>
+    <!-- DETAILS COMPONENT -->
+
+    <div class="d-flex justify-content-center" *ngIf="visible">
+        <app-user-details></app-user-details>
+    </div>
+    <!-- ORDERS COMPONENT -->
+    <div class="previous-order">
+
+    </div>
+
+</div>
