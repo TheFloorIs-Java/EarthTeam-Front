@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { AuthService } from 'src/app/services/auth.service';
-import { ProductService } from 'src/app/services/product.service';
+import { AuthService } from 'app/services/auth.service';
+import { ProductService } from 'app/services/product.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit{
 
   cartCount!: number;
   subscription!: Subscription;
+  dark : boolean = false;
 
   constructor(private authService: AuthService, private router: Router, private productService: ProductService) { }
   
@@ -24,6 +25,12 @@ export class NavbarComponent implements OnInit{
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  darkControl() {
+    document.body.classList.toggle('dark');
+    this.productService.darkToggle();
+    this.dark = !this.dark;
   }
 
   logout() {

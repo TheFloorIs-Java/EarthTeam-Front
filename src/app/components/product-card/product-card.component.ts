@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Product } from 'src/app/models/product';
-import { ProductService } from 'src/app/services/product.service';
+import { Product } from 'app/models/product';
+import { ProductService } from 'app/services/product.service';
 
 @Component({
   selector: 'app-product-card',
@@ -17,6 +17,7 @@ export class ProductCardComponent implements OnInit{
   }[] = [];
   subscription!: Subscription;
   totalPrice: number = 0;
+  dark: boolean = false;
 
   @Input() productInfo!: Product;
 
@@ -30,6 +31,7 @@ export class ProductCardComponent implements OnInit{
         this.totalPrice = cart.totalPrice;
       }
     );
+    this.dark = this.productService.dark;
   }
 
   addToCart(product: Product): void {

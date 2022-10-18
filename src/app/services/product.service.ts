@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Product } from '../models/product';
-import { environment } from 'src/environments/environment';
+import { environment } from 'environments/environment'
 
 interface Cart {
   cartCount: number;
@@ -17,6 +17,8 @@ interface Cart {
   providedIn: 'root'
 })
 export class ProductService {
+
+  dark: boolean = false;
 
   private productUrl: string = "/api/product";
 
@@ -49,5 +51,10 @@ export class ProductService {
   public purchase(products: {id:number, quantity:number}[]): Observable<any> {
     const payload = JSON.stringify(products);
     return this.http.patch<any>(environment.baseUrl+this.productUrl, payload, {headers: environment.headers, withCredentials: environment.withCredentials})
+  }
+
+  public darkToggle() {
+    this.dark = !this.dark;
+    console.log(this.dark);
   }
 }

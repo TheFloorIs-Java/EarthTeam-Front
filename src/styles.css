@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    transition: background-color .6s cubic-bezier(.7, 0, .7, 1); 
+}
+
+body.dark {
+    background-color: rgb(48, 42, 42);
+    color: white;
+}
+
