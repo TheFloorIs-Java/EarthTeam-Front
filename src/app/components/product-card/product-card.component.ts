@@ -68,8 +68,8 @@ export class ProductCardComponent implements OnInit{
       
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
+  // ngOnDestroy() {
+  //   this.subscription.unsubscribe();
+  // }
 
 }
