@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { OrderHistoryService } from 'src/app/services/order-history.service';
 
 @Component({
   selector: 'app-checkout',
@@ -11,6 +12,7 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
 })
 export class CheckoutComponent implements OnInit {
 
+  cart: any;
   products: {
     product: Product,
     quantity: number
@@ -32,7 +34,7 @@ export class CheckoutComponent implements OnInit {
     country: new UntypedFormControl('', Validators.required)
   });
 
-  constructor(private productService: ProductService, private router: Router) { }
+  constructor(private productService: ProductService, private router: Router, private orderHistory: OrderHistoryService) { }
 
   ngOnInit(): void {
     this.productService.getCart().subscribe(
@@ -42,6 +44,7 @@ export class CheckoutComponent implements OnInit {
           (element) => this.cartProducts.push(element.product)
         );
         this.totalPrice = cart.totalPrice;
+        this.cart = cart;
       }
     );
   }
@@ -60,6 +63,7 @@ export class CheckoutComponent implements OnInit {
         (resp) => console.log(resp),
         (err) => console.log(err),
         () => {
+          this.orderHistory.addOrder(this.buildOrder())
           let cart = {
             cartCount: 0,
             products: [],
@@ -72,6 +76,17 @@ export class CheckoutComponent implements OnInit {
 
     } else {
       this.router.navigate(['/home']);
+    }
+  }
+
+  buildOrder(){
+    return {
+      id:0,
+      userId:1,
+      orderItems:this.cart.products,
+      orderDate:new Date(),
+      total:this.cart.totalPrice,
+      count: this.cart.cartCount
     }
   }
 
