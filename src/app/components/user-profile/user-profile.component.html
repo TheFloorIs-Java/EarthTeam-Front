@@ -6,14 +6,16 @@
 
 <!-- WHAT ELSE: PAST ORDERS? -->
 <app-navbar></app-navbar>
-<!-- USER PROFILE NAV BAR -->
+
 <div class="general">
     <div id="welcome" class="d-flex justify-content-center">
-        <h1 class="p-3">Welcome Back, </h1>
+        <app-welcome-user></app-welcome-user>
     </div>
+
+    <!-- USER NAV -->
     <div class="d-flex justify-content-center">
        <span id="nav" class="d-flex justify-content-center bg-light w-75">
-        <button class="btn btn-light mx-2" (click)="btnClick()">
+        <button class="btn btn-light mx-2" (click)= "btnClick()">
             <span><i class="bi bi-file-earmark-person"></i></span>
             Details
         </button>
@@ -23,11 +25,12 @@
         </button>
     </span> 
     </div>
-    <!-- DETAILS COMPONENT -->
 
-    <div class="d-flex justify-content-center" *ngIf="visible">
-        <app-user-details></app-user-details>
+    <!-- DETAILS COMPONENT -->
+    <div class="d-flex justify-content-center" *ngIf = "visible">
+        <app-user-details [updateFirstName]= "user.firstName" [updateEmail]= "user.email"></app-user-details>
     </div>
+
     <!-- ORDERS COMPONENT -->
     <div class="previous-order">
 

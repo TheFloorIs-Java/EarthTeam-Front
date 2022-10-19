@@ -19,6 +19,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { NgxBootstrapIconsModule } from 'ngx-bootstrap-icons';
 import { allIcons } from 'ngx-bootstrap-icons';
 import { UserDetailsComponent } from './components/user-profile/user-details/user-details.component';
+import { WelcomeUserComponent } from './components/user-profile/welcome-user/welcome-user.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { UserDetailsComponent } from './components/user-profile/user-details/use
     CheckoutComponent,
     DisplayProductsComponent,
     UserProfileComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    WelcomeUserComponent
   ],
   imports: [
     BrowserModule,
