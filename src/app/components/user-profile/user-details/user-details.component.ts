@@ -11,15 +11,17 @@ import { AuthService } from 'src/app/services/auth.service';
 export class UserDetailsComponent implements OnInit {
  //child
   visible: boolean = false;
-  
-  //display variables
-  firstName: String = "";
-  email: String = "";
+
   @Input()
   updateFirstName: String = "";
 
   @Input()
   updateEmail: String = "";
+ 
+  //display variables
+  firstName: String = "";
+  email: String = "";
+ 
 
   constructor(private authService : AuthService, private userService: UserService) { }
 
