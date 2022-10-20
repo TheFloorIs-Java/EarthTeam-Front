@@ -20,6 +20,7 @@ import { NgxBootstrapIconsModule } from 'ngx-bootstrap-icons';
 import { allIcons } from 'ngx-bootstrap-icons';
 import { UserDetailsComponent } from './components/user-profile/user-details/user-details.component';
 import { WelcomeUserComponent } from './components/user-profile/welcome-user/welcome-user.component';
+import { OrderHistoryComponent } from './components/order-history/order-history.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { WelcomeUserComponent } from './components/user-profile/welcome-user/wel
     DisplayProductsComponent,
     UserProfileComponent,
     UserDetailsComponent,
-    WelcomeUserComponent
+    WelcomeUserComponent,
+    OrderHistoryComponent
   ],
   imports: [
     BrowserModule,

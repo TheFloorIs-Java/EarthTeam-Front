@@ -12,7 +12,7 @@ import { User } from 'src/app/models/user';
 })
 export class UserProfileComponent implements OnInit {
   //parent
-  visible: boolean = false;
+  userNavIndex: number = 0;
 
   user : User = {
     id:0,
@@ -27,8 +27,8 @@ export class UserProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  btnClick(): void {
-    this.visible = !this.visible;
+ userNavButtonClicked(index: number): void {
+    this.userNavIndex = index;
   }
 
 
