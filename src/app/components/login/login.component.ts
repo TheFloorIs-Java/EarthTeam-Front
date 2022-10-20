@@ -23,8 +23,11 @@ export class LoginComponent implements OnInit {
   
   onSubmit(): void {
     this.authService.login(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value).subscribe(
-      () => {
-        this.authService.loggedIn=true;
+      (response) => {
+        // here it tells us that if all goes well we are loggedIn = true.
+        this.authService.loggedIn = true;
+        //This will capture the user logged in and storing it in the authService user
+        this.authService.userInfo = response;
       },
       (err) => console.log(err),
       () => this.router.navigate(['home'])

@@ -1,0 +1,24 @@
+p {
+    width: 200px;
+    margin: 0px;
+    padding: 0px;
+}
+
+input {
+    height: 30px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.container {
+    height: 40px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.btn {
+    width: 135px;
+    height: 30px;
+    margin: 0px;
+    padding: 0px;
+}
