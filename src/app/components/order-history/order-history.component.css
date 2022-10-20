@@ -1,0 +1,36 @@
+p {
+    margin: 0
+}
+
+.container {
+    display:flex;
+    justify-content: center;
+}
+
+.order-list{
+    width: 800px;
+}
+
+.order{
+    border-style: solid;
+    padding: 1em 1em;
+    margin-bottom: 1em;
+}
+
+.order-header {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    border-top-style: dashed;
+    border-width: 1px;
+    border-color: gray;
+    margin-top: 0.5em;
+    padding-top: 0.5em;
+}

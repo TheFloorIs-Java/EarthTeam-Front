@@ -1,1 +1,21 @@
 <p>order-history works!</p>
+<div class="container">
+    <div class="order-list" *ngIf="orders.length > 0">
+        <div class="order" *ngFor="let order of orders; let i = index" (click)="toggleOrderMenu(i)">
+            <div class="order-header" >
+                <p>Order#: {{order.id}}</p>
+                <p>{{order.orderItems[0].product.name}} and {{order.count - 1}} more item(s)</p>
+                <p>Ordered on: {{order.orderDate | date : 'shortDate'}}</p>
+            </div>
+            <div class="order-item-list" *ngIf="order.orderItems.length > 0 && orderToggles[i]">
+                <div class="order-item" *ngFor="let item of order.orderItems">
+                    <p>{{item.product.name}} x {{item.quantity}}</p>
+                </div>
+                
+            </div>
+            <div class="order-item">
+                <p style="font-weight:bold">Total: ${{order.total}}</p>
+            </div>
+        </div>
+    </div>
+</div>

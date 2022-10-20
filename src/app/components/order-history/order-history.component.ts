@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderHistoryService } from 'src/app/services/order-history.service';
 
 @Component({
   selector: 'app-order-history',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderHistoryComponent implements OnInit {
 
-  constructor() { }
+  orders: any = [];
+  orderToggles: Array<boolean> = [];
+
+  constructor(private orderHistory: OrderHistoryService) { }
 
   ngOnInit(): void {
+    this.orderHistory.getOrderHistoryByUserId().subscribe(data => {
+      this.orders = data;
+      this.orderToggles = Array(this.orders.length).fill(false);
+    })
+
+  }
+
+  toggleOrderMenu(index: number){
+    this.orderToggles[index] = !this.orderToggles[index];
   }
 
 }
