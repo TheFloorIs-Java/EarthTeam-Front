@@ -1,27 +1,30 @@
-<div class="card p-2 m-3">
-    <div class="general d-flex aligns-items-center">
-        <p><strong>Name: </strong>{{firstName}}</p>
-
-        <!-- SHOW IF UPDATE BUTTON IS CLICKED -->
-        <div *ngIf= "visible">
-            <input type="text" placeholder="update name" [(ngModel)]= "updateFirstName">
-            <button class="btn btn-light mx-2" (click)= "updateUserInformation()">Update</button>
+<!-- TO USE TWO DIFFERENT CARDS -->
+<!-- VIEW DETAILS -->
+<div id="view-details" class="card p-2 m-3">
+    <div class="card-body">
+        <p><strong>Name: </strong>{{authService.userInfo.firstName}}</p>
+        <p><strong>Email: </strong>{{authService.userInfo.email}}</p>
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-light my-2" (click)="btnClick()">
+                <i class="bi-gear"></i>
+                Modify</button>
         </div>
-    </div>
-
-    <div class= "general d-flex justify-content-between">
-        <p><strong>Email: </strong>{{email}}</p>
-
-        <!-- SHOW IF UPDATE BUTTON IS CLICKED -->
-        <div *ngIf= "visible">
-            <input type="text" placeholder="update email" [(ngModel)] = "updateEmail">
-            <button class="btn btn-light mx-2">Update Email</button>
-        </div>
-    </div>
-
-    <div class="d-flex justify-content-center">
-        <button class="btn btn-light my-2" (click)= "btnClick()">Modify</button>
     </div>
 </div>
 
-
+<!-- MODIFY DETAILS -->
+<div id="edit-details" class="card p-2 m-3" *ngIf="visible">
+    <div class="card-body">
+        <div>
+            <p><strong>Name: </strong></p>
+            <input type="text" [placeholder]= "firstName" class="form-control" [(ngModel)]= "updateFirstName">
+        </div>
+        <div>
+            <p><strong>Email: </strong></p>
+            <input type="text" [placeholder]= "email" class="form-control" [(ngModel)]= "updateEmail">
+        </div>
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-light my-2" (click)="updateUserInformation()">Update</button>
+        </div>
+    </div>
+</div>

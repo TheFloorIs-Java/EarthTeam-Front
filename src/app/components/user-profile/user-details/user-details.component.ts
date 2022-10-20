@@ -20,9 +20,10 @@ export class UserDetailsComponent implements OnInit {
   //display variables
   firstName: String = "";
   email: String = "";
+  changeDetected: boolean = false;
  
 
-  constructor(private authService : AuthService, private userService: UserService) { }
+  constructor(public authService : AuthService, private userService: UserService) { }
 
   ngOnInit(): void {
     this.firstName = this.authService.userInfo.firstName;
@@ -37,15 +38,16 @@ export class UserDetailsComponent implements OnInit {
 
   // UPDATE VIA PUT REQUEST - this works
   updateUserInformation() : void {
-  // IF USER LEAVES IT BLANK IT WILL DEFAULT TO THE EXISTING VALUE  
     if(this.updateFirstName == ""){
       this.updateFirstName = this.firstName;
     }
     if(this.updateEmail == ""){
       this.updateEmail = this.email;
     }
+    
     this.userService.updateUser(this.updateEmail, this.updateFirstName);
-    this.email = this.authService.userInfo.email;    
-  }   
- 
-}
+    this.authService.userInfo.firstName = this.updateFirstName;
+    this.authService.userInfo.email = this.updateEmail;
+  }  
+  
+  }

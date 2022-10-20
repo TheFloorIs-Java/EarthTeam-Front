@@ -21,6 +21,7 @@ export class UserProfileComponent implements OnInit {
     firstName: "",
     lastName: ""
   }
+  router: any;
   
   constructor(private authService : AuthService) { }
 
@@ -30,6 +31,4 @@ export class UserProfileComponent implements OnInit {
  userNavButtonClicked(index: number): void {
     this.userNavIndex = index;
   }
-
-
 }

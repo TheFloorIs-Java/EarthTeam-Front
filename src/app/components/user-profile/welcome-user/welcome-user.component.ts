@@ -7,15 +7,10 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./welcome-user.component.css']
 })
 export class WelcomeUserComponent implements OnInit {
-  //Child
-  @Input()
-  firstName: String = "";
 
-  constructor(private authService: AuthService) { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit(): void {
-    console.log(this.authService.userInfo.firstName);
-    this.firstName = this.authService.userInfo.firstName;
   }
 
 }
