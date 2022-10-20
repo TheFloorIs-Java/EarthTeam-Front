@@ -32,7 +32,7 @@ export class CheckoutComponent implements OnInit {
     country: new UntypedFormControl('', Validators.required)
   });
 
-  constructor(private productService: ProductService, private router: Router) { }
+  constructor(public productService: ProductService, private router: Router) { }
 
   ngOnInit(): void {
     this.productService.getCart().subscribe(

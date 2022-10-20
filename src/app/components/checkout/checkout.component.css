@@ -52,7 +52,8 @@ body{
     position: absolute;
     top: 7px;
     left: 11px;
-    transition: 0.5s
+    transition: 0.5s;
+    color: black
 }
 
 .inputbox i {
@@ -70,13 +71,13 @@ input::-webkit-inner-spin-button {
 }
 
 .inputbox input:focus~span {
-    transform: translateX(-0px) translateY(-15px);
-    font-size: 12px
+    transform: translateX(-0px) translateY(-12px);
+    font-size: 10px
 }
 
 .inputbox input:valid~span {
-    transform: translateX(-0px) translateY(-15px);
-    font-size: 12px
+    transform: translateX(-0px) translateY(-12px);
+    font-size: 10px
 }
 
 .card-blue{
