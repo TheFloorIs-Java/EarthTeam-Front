@@ -1,4 +1,3 @@
-import { User } from './../../../models/user';
 import { UserService } from './../../../services/user.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
@@ -9,7 +8,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./user-details.component.css']
 })
 export class UserDetailsComponent implements OnInit {
- //child
+ 
   visible: boolean = false;
 
   @Input()
@@ -46,6 +45,7 @@ export class UserDetailsComponent implements OnInit {
       this.updateEmail = this.email;
     }
     this.userService.updateUser(this.updateEmail, this.updateFirstName);
+    this.email = this.authService.userInfo.email;    
   }   
-
+ 
 }
