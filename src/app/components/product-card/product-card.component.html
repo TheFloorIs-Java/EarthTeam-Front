@@ -17,7 +17,11 @@
         <input type="number" class="form-control" aria-label="Sizing example input" [value]="productInfo.quantity" aria-describedby="inputGroup-sizing-sm" disabled>
       </div>
     <span class="card-body">
-        <button class="btn btn-outline-success" (click)="addToCart(productInfo)">Add to Cart</button>
-          <input type="number" class="count" name="qty" min="1" [max]="productInfo.quantity" value="1">
+        <button class="btn btn-outline-success" (click)="addToCart(productInfo, itemCounter)">Add to Cart</button>    
+        <input (change)="checkItemCounter()" [(ngModel)]="itemCounter" type="number" class="count" name="qty" min="0" [max]="productInfo.quantity" value="1">
     </span>
+    <div>
+      <input type="number" [value]="itemCounter">
+
+    </div>
    
