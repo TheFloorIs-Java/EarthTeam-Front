@@ -1,5 +1,7 @@
 <div [ngClass]="themeService.dark ? 'darkCard' : 'card'" style="width: 18rem;">
+  <div class="general">
     <img class="card-img-top" [src]="productInfo.image" alt="Card image cap">
+  </div>
     <div class="card-body">
       <h5 class="card-title">{{productInfo.name}}</h5>
       <p class="card-text">{{productInfo.description}}</p>
@@ -24,4 +26,4 @@
           <button class="plus" (click)="increaseByOne(itemCounter)">+</button> 
         </span>
     </div>
-    
+</div>
