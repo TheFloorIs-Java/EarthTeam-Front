@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Product } from 'src/app/models/product';
-import { ProductService } from 'src/app/services/product.service';
+import { Product } from 'app/models/product';
+import { ProductService } from 'app/services/product.service';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
-import { OrderHistoryService } from 'src/app/services/order-history.service';
+import { ThemeService } from 'app/services/theme.service';
+import { OrderHistoryService } from 'app/services/order-history.service';
 
 @Component({
   selector: 'app-checkout',
@@ -34,7 +35,7 @@ export class CheckoutComponent implements OnInit {
     country: new UntypedFormControl('', Validators.required)
   });
 
-  constructor(private productService: ProductService, private router: Router, private orderHistory: OrderHistoryService) { }
+  constructor(private productService: ProductService, private router: Router, public themeService : ThemeService, private orderHistory: OrderHistoryService) { }
 
   ngOnInit(): void {
     this.productService.getCart().subscribe(

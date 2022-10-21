@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +13,7 @@ export class OrderHistoryService {
 
   orders: any = []
 
-  constructor(private http: HttpClient) { this.getOrderHistoryByUserId(1)}
+  constructor(private http: HttpClient, private authService: AuthService) { }
 
   addOrder(order: any){
     this.orders.push(order)
@@ -21,16 +23,12 @@ export class OrderHistoryService {
   }
 
   postOrderHistory(order: any){
+    order.userId = this.authService.userInfo.id;
     this.http.post<any>(environment.baseUrl+this.orderUrl, order, {headers: environment.headers, withCredentials: environment.withCredentials}).subscribe(() => console.log("Order Posted"))
   }
 
-  getOrderHistoryByUserId(userId: number){
+  getOrderHistoryByUserId(): Observable<any>{
     console.log("fetching order history")
-    this.http.get<any>(environment.baseUrl+this.orderUrl + "/" + userId, {headers: environment.headers, withCredentials: environment.withCredentials})
-    .subscribe(data => {
-      this.orders = data;
-      console.log("Order history fetched:");
-      console.log(this.orders);
-    });
+    return this.http.get<any>(environment.baseUrl+this.orderUrl + "/" + this.authService.userInfo.id, {headers: environment.headers, withCredentials: environment.withCredentials})
   }
 }

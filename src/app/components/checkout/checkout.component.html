@@ -8,12 +8,12 @@
     <span>please make the payment, after that you can enjoy all the features and benefits.</span>
         
     </div>
-    <div class="row">
+    <div [ngClass]="'row ' + (themeService.dark ? 'bg-dark' : '')">
         <div class="col-md-8">
-            <div class="card p-3">
+            <div class="'card p-3 ' + (themeService.dark ? 'bg-dark' : '')">
 
                 <h6 class="text-uppercase">Payment details</h6>
-                <div class="inputbox mt-3"> <input type="text" name="name" class="form-control" required="required"> <span>Name on card</span> </div>
+                <div class="inputbox mt-3"> <input type="text" name="name" class="form-control" required="required"> <span color="!important black">Name on card</span> </div>
 
                 <div class="row">
 
