@@ -1,6 +1,5 @@
 import { UserService } from './../../../services/user.service';
 import { Component, Input, OnInit } from '@angular/core';
-import { AuthService } from 'app/services/auth.service';
 
 @Component({
   selector: 'app-user-details',
@@ -8,39 +7,48 @@ import { AuthService } from 'app/services/auth.service';
   styleUrls: ['./user-details.component.css']
 })
 export class UserDetailsComponent implements OnInit {
- // For Button to display the Modify Card
+  
+  /**
+   * Boolean to help us define if the component we would like to see shown or not shown.
+   */
   visible: boolean = false;
 
-   // Taking the value in the Input for our Request Body
-  @Input()
+  /**
+   * These are the values that are used to update the User DB.
+   * With ngModel(directive binding) allows us to take in the value the user types and stores it in the apporiate variable and then we can use those variables as needed. 
+   */
   updateFirstName: String = "";
-  @Input()
   updateEmail: String = "";
- 
-  constructor(public authService : AuthService, private userService: UserService) { }
+
+  constructor(public userService: UserService) { }
 
   ngOnInit(): void {
   }
-  
-  // DISPLAY/HIDE COMPONENTS
+
+  /**
+   * An Event for the button to display the Modify Card on Click.
+   * If component is not shown(false) than it will change to shown(true).
+   */
   btnClick(): void {
     this.visible = !this.visible;
   }
 
-  // UPDATE VIA PUT REQUEST
-  updateUserInformation() : void {
-    // If the user does not provide any information, it will automatically insert the data that was in the DB
-    if(this.updateFirstName == ""){
-      this.updateFirstName = this.authService.userInfo.firstName;
+  /**
+   * Our method in this component to update the user information via our userService. 
+   * We set that if the user does not provide any information, it will automatically insert the data that exists in the DB.
+   * We call our userService to utilize the updateUser method that takes in the 2 parameters that the user would like to update.
+   * Lastly, we will set the newly updated information to the userService. 
+   */
+  updateUserInformation(): void {
+    if (this.updateFirstName == "") {
+      this.updateFirstName = this.userService.userInfo.firstName;
     }
-    if(this.updateEmail == ""){
-      this.updateEmail = this.authService.userInfo.email;
+    if (this.updateEmail == "") {
+      this.updateEmail = this.userService.userInfo.email;
     }
-    // The PUT request via the userService
     this.userService.updateUser(this.updateEmail, this.updateFirstName);
-    // Updating the existing information to the new data    
-    this.authService.userInfo.firstName = this.updateFirstName;
-    this.authService.userInfo.email = this.updateEmail;
-  }  
-  
+    this.userService.userInfo.firstName = this.updateFirstName;
+    this.userService.userInfo.email = this.updateEmail;
   }
+
+}
