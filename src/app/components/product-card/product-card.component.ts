@@ -35,7 +35,7 @@ export class ProductCardComponent implements OnInit{
   addToCart(product: Product, itemCounter: number ): void {
 
     let inCart = false;
-
+  
     this.products.forEach(
       (element) => {
         if(element.product == product){
@@ -79,5 +79,16 @@ export class ProductCardComponent implements OnInit{
       this.itemCounter = 0;
   }
 }
-
+decreaseByOne(itemCounter: number){
+  
+    this.itemCounter = this.itemCounter - 1;
+    this.checkItemCounter(); 
+  }
+  increaseByOne(itemCounter: number){
+    this.itemCounter= this.itemCounter + 1;
+    this.checkItemCounter();
+  }
+  
 }
+
+
