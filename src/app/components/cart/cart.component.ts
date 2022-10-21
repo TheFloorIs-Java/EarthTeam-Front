@@ -59,6 +59,7 @@ export class CartComponent implements OnInit {
                 this.totalPrice -= this.products[i].product.price;
                 this.products[i].quantity-=numb;
                 this.cartCount-=numb;
+               // this.itemNotAvailable(product);
                 break;
               }
               let cart = {
@@ -112,18 +113,21 @@ export class CartComponent implements OnInit {
 }
 
   // itemNotAvailable(product: Product){
-  //   for(let i = 0; i >= this.products.length; i--){
-  //     if(this.products[i].quantity === product.quantity){
+  // //   for(let i = 0; i >= this.products.length; i--){
+  //    if(product.quantity = product.quantity -1){
   //       let cart = {
-  //         cartCount: -1,
+  //         cartCount: 0,
   //         products: this.products,
-  //         totalPrice: this.totalPrice = product.price,
-  //      };
-  //    //his.totalPrice -= this.products[i].product.price;
+  //         totalPrice: 0,
+  //       };
+  //   // this.totalPrice -= this.products[i].product.price;
   //     this.productService.setCart(cart);
 
   //                // this.totalPrice = this.products.totalPrice;
   //               //this.itemNotAvailable(product);
+  //       }
+  //     }
+  //   }
   //   }
   // }
   //   }
