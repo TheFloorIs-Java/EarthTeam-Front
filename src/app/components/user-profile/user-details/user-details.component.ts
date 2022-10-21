@@ -8,27 +8,18 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./user-details.component.css']
 })
 export class UserDetailsComponent implements OnInit {
- 
+ // For Button to display the Modify Card
   visible: boolean = false;
 
+   // Taking the value in the Input for our Request Body
   @Input()
   updateFirstName: String = "";
-
   @Input()
   updateEmail: String = "";
  
-  //display variables
-  firstName: String = "";
-  email: String = "";
-  changeDetected: boolean = false;
- 
-
   constructor(public authService : AuthService, private userService: UserService) { }
 
   ngOnInit(): void {
-    this.firstName = this.authService.userInfo.firstName;
-    this.email = this.authService.userInfo.email;
-
   }
   
   // DISPLAY/HIDE COMPONENTS
@@ -36,16 +27,18 @@ export class UserDetailsComponent implements OnInit {
     this.visible = !this.visible;
   }
 
-  // UPDATE VIA PUT REQUEST - this works
+  // UPDATE VIA PUT REQUEST
   updateUserInformation() : void {
+    // If the user does not provide any information, it will automatically insert the data that was in the DB
     if(this.updateFirstName == ""){
-      this.updateFirstName = this.firstName;
+      this.updateFirstName = this.authService.userInfo.firstName;
     }
     if(this.updateEmail == ""){
-      this.updateEmail = this.email;
+      this.updateEmail = this.authService.userInfo.email;
     }
-    
+    // The PUT request via the userService
     this.userService.updateUser(this.updateEmail, this.updateFirstName);
+    // Updating the existing information to the new data    
     this.authService.userInfo.firstName = this.updateFirstName;
     this.authService.userInfo.email = this.updateEmail;
   }  
