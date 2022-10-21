@@ -10,7 +10,7 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  
+
   cartCount!: number;
   products: {
     product: Product,
@@ -59,7 +59,6 @@ export class CartComponent implements OnInit {
                 this.totalPrice -= this.products[i].product.price;
                 this.products[i].quantity-=numb;
                 this.cartCount-=numb;
-               // this.itemNotAvailable(product);
                 break;
               }
               let cart = {
