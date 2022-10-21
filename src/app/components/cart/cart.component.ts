@@ -35,7 +35,7 @@ export class CartComponent implements OnInit {
     );
     }
     /**
-     * This method change the quantity in the cart page(increase and decrease the quantity)
+     * This method changes the quantity in the cart page(increase and decrease the quantity)
      * Also removes the item if the decrease gets to 0
      * @param product (product selected to be added or subtracted)
      * @param numb when the product is add the total increase and subtract the total also decrease
@@ -51,7 +51,15 @@ export class CartComponent implements OnInit {
               this.products[i].quantity+=numb;
               if(this.products[i].quantity == 0){
                 this.removeItem(product);
-                return
+              }
+              /**
+               * if statement: to limit the cart quantity by the product available
+               */
+              if(this.products[i].quantity -1 >= product.quantity){
+                this.totalPrice -= this.products[i].product.price;
+                this.products[i].quantity-=numb;
+                this.cartCount-=numb;
+                break;
               }
               let cart = {
                 cartCount: this.cartCount,
@@ -63,7 +71,10 @@ export class CartComponent implements OnInit {
               return;
           }
         }
-      }
+    }
+      /**
+       * Method to clean the shopping cart and route back to the products page
+       */
   emptyCart(): void {
     let cart = {
       cartCount: 0,
@@ -74,7 +85,7 @@ export class CartComponent implements OnInit {
     this.router.navigate(['/home']);
   }
   /**
-   * This method remove each product from the cart, after remove button is clicked
+   * This method removes each product from the cart, after button is clicked
    * decrement from the total price when item gets removed from the cart
    * @param product (product selected to be removed)
    * @returns 
@@ -98,85 +109,22 @@ export class CartComponent implements OnInit {
       }
     }
   }
-
 }
 
+  // itemNotAvailable(product: Product){
+  //   for(let i = 0; i >= this.products.length; i--){
+  //     if(this.products[i].quantity === product.quantity){
+  //       let cart = {
+  //         cartCount: -1,
+  //         products: this.products,
+  //         totalPrice: this.totalPrice = product.price,
+  //      };
+  //    //his.totalPrice -= this.products[i].product.price;
+  //     this.productService.setCart(cart);
 
-// console.log(this.products[i].product.id);
-          // //console.log(product.id);
-
-  // removeProduct(product: any){
-  //     this.products.map((a:any, index:any)=>{
-  //       if(product.id === a.id){
-  //         this.products.splice(index, 1);
-  //           }
-  //         //  return this.cartProducts;
-          
-  //         })
-  //       }
-  //     }
-  
-  // removeItem(product: any){
-  //         this.cartProducts.map((a:any, index:any)=>{
-  //           if(product.id === a.id){
-  //             this.cartProducts.splice(index, 1);
-  //         }
-  //         return this.cartProducts.length;
-  //       })
-  //     }
-  //   }
-//   removeItem(product: any){
-//     for(let i = 0; i < this.products.length; i += 1){
-//       if(this.products[i].id === product.id){
-//         this.products.splice(i, 1);
-//         return
-//     }
-//   }
-// }
-// }
-
-  // removeItem(product: any){
-  //   this.cartProducts.map((a:any, index:any)=>{
-  //     if(product.id === a.id){
-  //       this.cartProducts.splice(index,1);
-  //       }
-  //     })
-  //     this.cartProducts = product(indexedDB);
+  //                // this.totalPrice = this.products.totalPrice;
+  //               //this.itemNotAvailable(product);
   //   }
   // }
-
-
-//   removeItem(product: any){
-//     const index: number = this.cartProducts.indexOf(product);
-//     if(index !== -1){
-//       this.cartProducts.splice(index,1)
-//     }
-//   }
-// }
-
-  //   let cart= {
-  //   cartCount: 0,
-  //   products: ,
-  //   totalPrice: 0.00
-  // };
-  // this.productService.setCart(product);
-
-//   removeItem(product: any){
-//       this.cartProducts.map((a:any, index:any)=>{
-//         if(product.id === a.id){
-//           this.cartProducts.splice(index, 1);
-
-//       }
-//     })
-//   }
-// }
-  
-  /** */
-  // removeCartItem(product: any){
-  //   this.cartProducts.map((a:any, index:any)=>{
-  //     if(product.id === a.id){
-  //       this.cartProducts.splice(index, 1);
-  //     }
-
-  //   })
+  //   }
   // }

@@ -14,12 +14,15 @@
       <td>{{ product.product.id }}</td>
       <td>{{ product.product.name }}</td>
       <td>
-        <button type="button" (click)="changeQuantity(product.product, -1)">
-          <i class="fa-solid fa-minus"></i></button
-        >{{ product.quantity }}
-        <button type="button" (click)="changeQuantity(product.product, 1)">
-          <i class="fa-solid fa-plus"></i>
-        </button>
+        <button
+          class="fa-solid fa-minus"
+          (click)="changeQuantity(product.product, -1)"
+        ></button>
+        {{ product.quantity }}
+        <button
+          class="fa-solid fa-plus"
+          (click)="changeQuantity(product.product, 1)"
+        ></button>
       </td>
       <td>{{ product.product.description }}</td>
       <td>

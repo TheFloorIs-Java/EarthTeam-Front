@@ -7,3 +7,26 @@
 {
     margin-left: 2%;
 }
+
+.fa-plus{
+    height: 16px;
+    width: relative;
+    border: none;
+     border-radius: 5px;
+    
+}
+    .fa-plus:hover{
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        background-color: lightseagreen;
+     }
+.fa-minus{
+    height: 16px;
+    width: relative;
+    border: none;
+    border-radius: 15px;
+    
+}
+ .fa-minus:hover{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    background-color: lightseagreen;
+ }
