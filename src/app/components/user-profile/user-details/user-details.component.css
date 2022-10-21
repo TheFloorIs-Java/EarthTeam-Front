@@ -1,14 +1,19 @@
 p {
     width: 200px;
-    margin: 0px;
+    margin: 2px;
     padding: 0px;
 }
 
 input {
     height: 30px;
     margin: 0px;
-    padding: 0px;
+    padding: 5px;
+    text-justify: center;
 }
+
+::placeholder {
+    text-align: center;
+  }
 
 .container {
     height: 40px;
@@ -20,5 +25,6 @@ input {
     width: 135px;
     height: 30px;
     margin: 0px;
+    margin-top: 7% ;
     padding: 0px;
 }
