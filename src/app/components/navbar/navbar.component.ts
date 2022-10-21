@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { AuthService } from 'app/services/auth.service';
 import { ProductService } from 'app/services/product.service';
 import { FormControl } from '@angular/forms';
+import { ThemeService } from 'app/services/theme.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,11 +15,10 @@ export class NavbarComponent implements OnInit{
 
   cartCount!: number;
   subscription!: Subscription;
-  dark : boolean = this.productService.dark;
-  toggleControl = new FormControl(this.productService.dark);
+  toggleControl = new FormControl(this.themeService.dark);
 
 
-  constructor(private authService: AuthService, private router: Router, private productService: ProductService) { }
+  constructor(private authService: AuthService, private router: Router, private productService: ProductService, public themeService : ThemeService) { }
   
   ngOnInit(): void {
     this.subscription = this.productService.getCart().subscribe(
@@ -31,13 +31,14 @@ export class NavbarComponent implements OnInit{
   }
 
   darkControl() {
-    document.body.classList.toggle('dark');
-    this.productService.darkToggle();
-    this.dark = !this.dark;
+    this.themeService.darkToggle();
   }
 
   logout() {
     this.authService.logout();
+    if(this.themeService.dark){
+      this.themeService.darkToggle();
+    }
     this.router.navigate(['login']);
   }
 

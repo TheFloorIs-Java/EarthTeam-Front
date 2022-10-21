@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Product } from 'app/models/product';
 import { ProductService } from 'app/services/product.service';
+import { ThemeService } from 'app/services/theme.service';
 
 @Component({
   selector: 'app-product-card',
@@ -17,11 +18,10 @@ export class ProductCardComponent implements OnInit{
   }[] = [];
   subscription!: Subscription;
   totalPrice: number = 0;
-  dark: boolean = false;
 
   @Input() productInfo!: Product;
 
-  constructor(public productService: ProductService) { }
+  constructor(private productService: ProductService, public themeService : ThemeService) { }
   
   ngOnInit(): void {
     this.subscription = this.productService.getCart().subscribe(
@@ -31,7 +31,6 @@ export class ProductCardComponent implements OnInit{
         this.totalPrice = cart.totalPrice;
       }
     );
-    this.dark = this.productService.dark;
   }
 
   addToCart(product: Product): void {

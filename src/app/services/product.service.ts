@@ -18,8 +18,6 @@ interface Cart {
 })
 export class ProductService {
 
-  dark: boolean = false;
-
   private productUrl: string = "/api/product";
 
   private _cart = new BehaviorSubject<Cart>({
@@ -53,8 +51,5 @@ export class ProductService {
     return this.http.patch<any>(environment.baseUrl+this.productUrl, payload, {headers: environment.headers, withCredentials: environment.withCredentials})
   }
 
-  public darkToggle() {
-    this.dark = !this.dark;
-    console.log(this.dark);
-  }
+  
 }
