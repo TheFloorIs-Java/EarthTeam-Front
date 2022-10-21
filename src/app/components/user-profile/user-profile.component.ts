@@ -1,9 +1,9 @@
 import { map } from 'rxjs/operators';
 import { UserService } from './../../services/user.service';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from 'app/services/auth.service';
 import { Component, Input, OnInit } from '@angular/core';
 
-import { User } from 'src/app/models/user';
+import { User } from 'app/models/user';
 
 @Component({
   selector: 'app-user-profile',

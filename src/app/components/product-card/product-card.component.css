@@ -5,6 +5,28 @@
     height: fit-content;
     transition: .2s ease-out;  
   }
+
+  .darkCard {
+    size: auto;
+    min-width: 275px;
+    max-width: 200px;
+    height: fit-content;
+    transition: .2s ease-out;
+    background-color: rgb(53, 58, 64);
+    color: white;
+  
+  }
+
+  .darkCard {
+    size: auto;
+    min-width: 275px;
+    max-width: 200px;
+    height: fit-content;
+    transition: .2s ease-out;
+    background-color: rgb(53, 58, 64);
+    color: white;
+  
+  }
   
   img
   {
@@ -23,6 +45,11 @@
   
   .card:hover{
     box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    transform: translate3d(0,-10px,0);
+  }
+
+  .darkCard:hover{
+    box-shadow: 0 5px 10px rgba(255, 255, 255, 0.2);
     transform: translate3d(0,-10px,0);
   }
 

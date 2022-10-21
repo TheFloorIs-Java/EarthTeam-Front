@@ -1,8 +1,8 @@
 import { identifierName } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Product } from 'src/app/models/product';
-import { ProductService } from 'src/app/services/product.service';
+import { Product } from 'app/models/product';
+import { ProductService } from 'app/services/product.service';
 
 @Component({
   selector: 'app-cart',

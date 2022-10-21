@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Product } from 'src/app/models/product';
-import { ProductService } from 'src/app/services/product.service';
+import { Product } from 'app/models/product';
+import { ProductService } from 'app/services/product.service';
+import { ThemeService } from 'app/services/theme.service';
 
 @Component({
   selector: 'app-product-card',
@@ -20,7 +21,7 @@ export class ProductCardComponent implements OnInit{
 
   @Input() productInfo!: Product;
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, public themeService : ThemeService) { }
   
   ngOnInit(): void {
     this.subscription = this.productService.getCart().subscribe(
