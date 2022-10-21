@@ -1,4 +1,3 @@
-<p>order-history works!</p>
 <div class="container">
     <div class="order-list" *ngIf="orders.length > 0">
         <div class="order" *ngFor="let order of orders; let i = index" (click)="toggleOrderMenu(i)">
