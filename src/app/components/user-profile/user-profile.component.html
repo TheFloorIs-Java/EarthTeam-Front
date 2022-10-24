@@ -14,13 +14,13 @@
 
     <!-- USER NAV -->
     <div class="d-flex justify-content-center">
-        <span id="nav" class="d-flex justify-content-center bg-light w-75">
-            <button class="btn btn-light mx-2" [ngClass]= "{'active': userNavIndex == 0}" (click)="userNavButtonClicked(0)">
+        <span id="nav" [ngClass]="'d-flex justify-content-center w-75 ' + (themeService.dark ? 'bg-dark' : 'bg-light')">
+            <button class="btn mx-2" [ngClass]= "{'active': userNavIndex == 0, 'btn-light' : !themeService.dark, 'btn-dark' : themeService.dark}" (click)="userNavButtonClicked(0)">
                 <span><i class="bi bi-file-earmark-person"></i></span>
                 Details
             </button>
 
-            <button class="btn btn-light mx-2" [ngClass]= "{'active': userNavIndex == 1}" (click)= "userNavButtonClicked(1)">
+            <button class="btn mx-2" [ngClass]= "{'active': userNavIndex == 1, 'btn-light' : !themeService.dark, 'btn-dark' : themeService.dark}" (click)="userNavButtonClicked(1)">
                 <span><i class="bi bi-box-seam"></i></span>
                 Orders
             </button>

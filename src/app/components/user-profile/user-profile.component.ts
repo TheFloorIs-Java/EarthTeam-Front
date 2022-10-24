@@ -2,6 +2,7 @@ import { map } from 'rxjs/operators';
 import { UserService } from './../../services/user.service';
 import { AuthService } from 'app/services/auth.service';
 import { Component, Input, OnInit } from '@angular/core';
+import { ThemeService } from 'app/services/theme.service';
 
 import { User } from 'app/models/user';
 
@@ -23,7 +24,7 @@ export class UserProfileComponent implements OnInit {
   }
   router: any;
   
-  constructor(private authService : AuthService) { }
+  constructor(private authService : AuthService, public themeService : ThemeService) { }
 
   ngOnInit(): void {
   }

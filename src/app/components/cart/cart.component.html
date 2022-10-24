@@ -15,12 +15,12 @@
       <td>{{ product.product.name }}</td>
       <td>
         <button
-          class="fa-solid fa-minus"
+          [ngClass]="'fa-solid fa-minus ' + (themeService.dark ? 'btn-dark' : '')"
           (click)="changeQuantity(product.product, -1)"
         ></button>
         {{ product.quantity }}
         <button
-          class="fa-solid fa-plus"
+        [ngClass]="'fa-solid fa-plus ' + (themeService.dark ? 'btn-dark' : '')"
           (click)="changeQuantity(product.product, 1)"
         ></button>
       </td>
