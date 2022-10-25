@@ -16,7 +16,7 @@
         </div>
         <input type="number" class="form-control" aria-label="Sizing example input" [value]="productInfo.quantity" aria-describedby="inputGroup-sizing-sm" disabled>
       </div>
-    <div class="card-body">
+    <div *ngIf="displayButtons;" class="card-body">
         <button class="btn btn-outline-success" (click)="addToCart(productInfo, itemCounter)">Add to Cart</button>  
         <span class="container">
           <button class="minus" (click)="decreaseByOne(itemCounter)">-</button>  
@@ -24,4 +24,7 @@
           <button class="plus" (click)="increaseByOne(itemCounter)">+</button> 
         </span>
     </div>
-    
+    <div *ngIf="!displayButtons" class="outOfStock">
+      <p>Out Of Stock</p>
+     
+    </div>
