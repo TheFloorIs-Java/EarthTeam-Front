@@ -31,7 +31,10 @@ export class ProductCardComponent implements OnInit{
         this.totalPrice = cart.totalPrice;
       }
     );
+    if (this.productInfo.quantity <= 0) {
+      this.displayButtons = false;
   }
+}
 
   addToCart(product: Product, itemCounter: number ): void {
 
@@ -89,7 +92,8 @@ decreaseByOne(itemCounter: number){
     this.itemCounter= this.itemCounter + 1;
     this.checkItemCounter();
   }
-  
+  displayButtons = true;
+
 }
 
 
