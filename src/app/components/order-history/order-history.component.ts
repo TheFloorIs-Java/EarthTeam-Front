@@ -22,6 +22,12 @@ export class OrderHistoryComponent implements OnInit {
 
   }
 
+
+  /**
+   * Opens or closes details menu for given order
+   * 
+   * @param index The index of the order in orders
+   */
   toggleOrderMenu(index: number){
     this.orderToggles[index] = !this.orderToggles[index];
   }
