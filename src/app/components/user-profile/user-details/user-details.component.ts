@@ -46,7 +46,7 @@ export class UserDetailsComponent implements OnInit {
     if (this.updateEmail == "") {
       this.updateEmail = this.userService.userInfo.email;
     }
-    this.userService.updateUser(this.updateEmail, this.updateFirstName);
+    this.userService.updateUser(this.updateEmail, this.updateFirstName).subscribe(response => console.log(response));
     this.userService.userInfo.firstName = this.updateFirstName;
     this.userService.userInfo.email = this.updateEmail;
   }

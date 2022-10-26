@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AuthService } from './auth.service';
 import { environment } from 'environments/environment';
 import { User } from 'app/models/user';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -28,9 +28,9 @@ export class UserService {
    * @param email 
    * @param firstName 
    */
-  updateUser(email: String, firstName: String): void {
+  updateUser(email: String, firstName: String): Observable<any> {
     const body = {email: email, firstName: firstName}
-    this.http.put<any>("http://localhost:8080/api/user/" + this.userInfo.id, body, {headers: environment.headers, withCredentials: environment.withCredentials 
-    }).subscribe(response => console.log(response));
+    return this.http.put<any>("http://localhost:8080/api/user/" + this.userInfo.id, body, {headers: environment.headers, withCredentials: environment.withCredentials 
+    })
   }
 }
