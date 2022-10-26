@@ -19,7 +19,14 @@ export class ProductCardComponent implements OnInit{
   subscription!: Subscription;
   totalPrice: number = 0;
 
-  @Input() productInfo!: Product;
+  @Input() productInfo: Product = {
+    id: 0,
+    name: 'product',
+    quantity: 1,
+    price: 10,
+    description: 'product description',
+    image: 'src\assets\images\rev-logo.png'
+  };
 
   constructor(private productService: ProductService, public themeService : ThemeService) { }
   
