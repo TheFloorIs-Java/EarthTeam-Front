@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.3.
 
+To properly run this frontend, make sure to have Node.js and Angular installed on your machine. First open a command line and run the following command tp install Node:
+npm install -g npm
+Then run this command to install Angular: npm install -g @angular/cli
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
