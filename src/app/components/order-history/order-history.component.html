@@ -1,6 +1,6 @@
 <div class="container">
     <div class="order-list" *ngIf="orders.length > 0">
-        <div class="order" *ngFor="let order of orders; let i = index" (click)="toggleOrderMenu(i)">
+        <div [ngClass]="'order card ' + (themeService.dark ? 'bg-dark' : '') " *ngFor="let order of orders; let i = index" (click)="toggleOrderMenu(i)">
             <div class="order-header" >
                 <p>Order#: {{order.id}}</p>
                 <p>{{order.orderItems[0].product.name}} and {{order.count - 1}} more item(s)</p>
