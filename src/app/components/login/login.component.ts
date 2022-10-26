@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'app/services/auth.service';
+import { UserService } from 'app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -14,9 +15,8 @@ export class LoginComponent implements OnInit {
     email: new UntypedFormControl(''),
     password: new UntypedFormControl('')
   })
-  
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -24,10 +24,12 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     this.authService.login(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value).subscribe(
       (response) => {
-        // here it tells us that if all goes well we are loggedIn = true.
         this.authService.loggedIn = true;
-        //This will capture the user logged in and storing it in the authService user
-        this.authService.userInfo = response;
+        /*
+        this.userService.userInfo is the location the user's information will be stored after they have logged in.
+        We do this by setting the response we get from the login request that we send to our server.
+        */
+        this.userService.userInfo = response;
       },
       (err) => console.log(err),
       () => this.router.navigate(['home'])

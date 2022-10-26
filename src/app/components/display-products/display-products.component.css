@@ -22,13 +22,16 @@
 }
 
 /* medium size viewport */
-@media screen and (max-width: 959px) {
+@media screen and (max-width: 1020px) {
 
   /* Item sizing */
   .cardListItem {
     /* flex: 0 0 307px; */
     margin-left: 5%;
     margin-right: 5%;
+  }
+  .col {
+    min-width: fit-content;
   }
 }
 
@@ -49,4 +52,8 @@
 
 .col-4 {
   margin-bottom: 1%;
+}
+
+.col {
+  max-width: 33%;
 }

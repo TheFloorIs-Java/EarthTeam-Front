@@ -12,15 +12,6 @@ export class AuthService {
   authUrl: string = `${environment.baseUrl}/auth`;
   loggedIn: boolean = false;
 
-  //TRY
-  userInfo : User = {
-    id:0,
-    email: "",
-    password: "",
-    firstName: "",
-    lastName: ""
-  }
-
   constructor(private http: HttpClient) { 
   }
 

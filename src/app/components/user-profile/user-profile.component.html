@@ -1,18 +1,10 @@
-<!-- WHAT DO WE NEED IN USER PROFILE -->
-<!-- USER STORY : I should be able to create and maintain a profile page. -->
-<!-- WHEN A USER SIGNS UP - THEY NATURALLY WILL HAVE A USER PROFILE PAGE - BY DEFAULT IT WILL PULL IN FIRST NAME, LAST NAME AND EMAIL FROM THE REGISTER -->
-
-<!-- MODELS NEEDED: USERPROFILE: userId (links to Users - for the first name, last name and email),  + USERS (userId, firstName, lastName, email, password)  -->
-
-<!-- WHAT ELSE: PAST ORDERS? -->
+<!-- USER PROFILE PAGE -->
 <app-navbar></app-navbar>
-
 <div class="general">
     <div id="welcome" class="d-flex justify-content-center">
         <app-welcome-user></app-welcome-user>
     </div>
-
-    <!-- USER NAV -->
+    <!-- USER NAV: ALLOWS USERS TO CHOOSE WHAT THEY WILL LIKE TO ACCESS -->
     <div class="d-flex justify-content-center">
         <span id="nav" [ngClass]="'d-flex justify-content-center w-75 ' + (themeService.dark ? 'bg-dark' : 'bg-light')">
             <button class="btn mx-2" [ngClass]= "{'active': userNavIndex == 0, 'btn-light' : !themeService.dark, 'btn-dark' : themeService.dark}" (click)="userNavButtonClicked(0)">
@@ -29,12 +21,11 @@
 
     <!-- DETAILS COMPONENT --> 
     <div class="d-flex justify-content-center" *ngIf= "userNavIndex == 0">
-        <app-user-details [updateFirstName]="user.firstName" [updateEmail]="user.email"></app-user-details>
+        <app-user-details></app-user-details>
     </div>
 
     <!-- ORDERS COMPONENT -->
-    <div class="previous-order" *ngIf="userNavIndex == 1">
+    <div class="previous-order" *ngIf= "userNavIndex == 1">
         <app-order-history></app-order-history>
     </div>
-
 </div>
