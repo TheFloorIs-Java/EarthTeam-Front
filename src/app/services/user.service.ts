@@ -28,9 +28,9 @@ export class UserService {
    * @param email 
    * @param firstName 
    */
-  updateUser(email: String, firstName: String): Observable<any> {
+  updateUser(email: String, firstName: String): Observable<User> {
     const body = {email: email, firstName: firstName}
-    return this.http.put<any>("http://localhost:8080/api/user/" + this.userInfo.id, body, {headers: environment.headers, withCredentials: environment.withCredentials 
+    return this.http.put<User>("http://localhost:8080/api/user/" + this.userInfo.id, body, {headers: environment.headers, withCredentials: environment.withCredentials 
     })
   }
 }
