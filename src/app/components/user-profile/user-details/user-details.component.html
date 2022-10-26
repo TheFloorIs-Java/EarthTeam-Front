@@ -1,11 +1,11 @@
 <!-- TO USE TWO DIFFERENT CARDS -->
 <!-- VIEW DETAILS -->
-<div id="view-details" class="card p-2 m-3">
+<div id="view-details" [ngClass]="'card p-2 m-3 ' + (themeService.dark ? 'bg-dark' : '')">
     <div class="card-body">
         <p><strong>Name:  </strong>{{authService.userInfo.firstName}}</p>
         <p><strong>Email:  </strong>{{authService.userInfo.email}}</p>
         <div class="d-flex justify-content-center">
-            <button class="btn btn-light" (click)="btnClick()">
+            <button [ngClass]="'btn ' + (themeService.dark ? 'btn-dark' : 'btn-light')" (click)="btnClick()">
                 <i class="bi-gear"></i>
                 Modify</button>
         </div>
@@ -13,7 +13,7 @@
 </div>
 
 <!-- MODIFY DETAILS -->
-<div id="edit-details" class="card p-2 m-3" *ngIf="visible">
+<div id="edit-details" [ngClass]="'card p-2 m-3 ' + (themeService.dark ? 'bg-dark' : '')" *ngIf="visible">
     <div class="card-body">
         <div>
             <p><strong>Name: </strong></p>

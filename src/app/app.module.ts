@@ -16,7 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
-import { NgxBootstrapIconsModule } from 'ngx-bootstrap-icons';
+import { NgxBootstrapIconsModule} from 'ngx-bootstrap-icons'
 import { allIcons } from 'ngx-bootstrap-icons';
 import { UserDetailsComponent } from './components/user-profile/user-details/user-details.component';
 import { WelcomeUserComponent } from './components/user-profile/welcome-user/welcome-user.component';

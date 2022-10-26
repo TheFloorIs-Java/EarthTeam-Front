@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'app/models/product';
 import { ProductService } from 'app/services/product.service';
+import { ThemeService } from 'app/services/theme.service';
 
 @Component({
   selector: 'app-cart',
@@ -20,7 +21,7 @@ export class CartComponent implements OnInit {
   cartProducts: Product[] = [];
   setProduct: String = '';
 
-  constructor(private productService: ProductService, private router: Router) { }
+  constructor(private productService: ProductService, private router: Router, public themeService : ThemeService) { }
 
   ngOnInit(): void {
     this.productService.getCart().subscribe(

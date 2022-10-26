@@ -1,6 +1,7 @@
 import { UserService } from './../../../services/user.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { AuthService } from 'app/services/auth.service';
+import { ThemeService } from 'app/services/theme.service';
 
 @Component({
   selector: 'app-user-details',
@@ -17,7 +18,7 @@ export class UserDetailsComponent implements OnInit {
   @Input()
   updateEmail: String = "";
  
-  constructor(public authService : AuthService, private userService: UserService) { }
+  constructor(public authService : AuthService, private userService: UserService, public themeService : ThemeService) { }
 
   ngOnInit(): void {
   }

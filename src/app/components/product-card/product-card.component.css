@@ -17,17 +17,6 @@
   
   }
 
-  .darkCard {
-    size: auto;
-    min-width: 275px;
-    max-width: 200px;
-    height: fit-content;
-    transition: .2s ease-out;
-    background-color: rgb(53, 58, 64);
-    color: white;
-  
-  }
-  
   img
   {
     justify-content: center;
@@ -91,9 +80,15 @@ input[type="number"]{
   text-align: center;
   border : none;
   font-size: large;
-  width: 25px
+  width: 25px;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance : none;
 }
+
+/*.count {
+  height: 30px;
+  margin-top: 25px;
+} */
+
